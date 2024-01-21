@@ -9,7 +9,7 @@
 }
 
 :root {
-    --ocean-blue: #1992d4;
+    --ocean-blue: #d41935;
     --main-content: #e2e8f0;
     --box-shadow: #8d8d8e;
     --accent: #f0b429;
@@ -307,6 +307,7 @@ button {
     grid-column: 1/-1;
     grid-row: 2/3;
     padding-right: var(--card-padding);
+    font-family: var(--text-font);
 }
 
 .card-icon-container {
@@ -327,10 +328,6 @@ button {
     }
 }
 
-.card-icon {
-
-}
-
 .announcements-container {
     grid-column: 2/3;
     grid-row: 1/2;
@@ -343,6 +340,17 @@ button {
     background-color: white;
     border-radius: 10px;
     box-shadow: var(--card-shadow);
+    padding: 10px 30px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+
+    & div {
+        border-bottom: 1px solid var(--box-shadow);
+    }
+
+    & :last-child {
+        border-bottom: 0px;
+    }
 }
 
 .trending-container {
@@ -356,4 +364,31 @@ button {
     background-color: white;
     border-radius: 10px;
     box-shadow: var(--card-shadow);
+    padding: 10px 30px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.trending-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    & img {
+        align-self: center;
+    }
+
+    & div {
+        display: grid;
+        gap: 10px;
+    }
+}
+
+.handle,
+.user-description {
+    margin: 0px;
+}
+
+.handle {
+    font-weight: bold;
+    align-self: end;
 }
