@@ -11,6 +11,7 @@
 :root {
     --ocean-blue: #1992d4;
     --main-content: #e2e8f0;
+    --box-shadow: #8d8d8e;
 
     --sidebar-icon: clamp(15px, 2vw, 20px);
     --sidebar-title-icon: clamp(30px, 2.2vw, 50px);
@@ -21,6 +22,9 @@
     --text-size: 14px;
     --sidebar-title: clamp(8px, 1vw, 10px);
     --sidebar-title-big: clamp(10px, 1.2vw, 20px);
+
+    --main-content-gap: 20px;
+    --card-shadow: 2px 1px 3px var(--box-shadow);
 }
 
 body {
@@ -39,7 +43,6 @@ body {
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 4fr;
-    height: 100vh;
     background-color: var(--main-content);
 }
 
@@ -51,7 +54,7 @@ body {
     grid-template-columns: 3fr 2fr;
     grid-template-rows: 1fr 1fr;
     padding: 0px 40px 10px 40px;
-    box-shadow: 0px 2px 5px #8d8d8e;
+    box-shadow: 0px 2px 5px var(--box-shadow);
     background-color: white;
 
     & .header-icon {
@@ -166,7 +169,7 @@ button {
     padding: 7px 15px;
     border-radius: 20px;
     border: 0px;
-    font-size: 15px;
+    font-size: clamp(10px, 1vw, 15px);
     font-weight: bold;
     width: 80%;
     justify-self: end;
@@ -233,4 +236,69 @@ button {
 .main-content {
     grid-column: 2 / -1;
     display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: var(--main-content-gap);
+    padding: 20px 30px;
+    margin-bottom: 5vh;
+
+    & h1 {
+        font-family: var(--title-font);
+        font-size: calc(var(--sidebar-title) + 3px);
+    }
+}
+
+.projects-container {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 19fr;
+
+    & h1 {
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+}
+
+.projects {
+    grid-column: 1/3;
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(auto-fill, minmax(2fr, 3fr));
+    gap: var(--main-content-gap); 
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+}
+
+.announcements-container {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 9fr;
+}
+
+.announcements {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+}
+
+.trending-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+}
+
+.trending {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
 }
